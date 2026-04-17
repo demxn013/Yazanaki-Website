@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 
 // Subtle animated SVG network visual used on the right side of the hero.
 // Static geometry (deterministic) with gently pulsing nodes.
+// Theme: crimson primary, no gold overlays.
 export default function HeroNetwork() {
   const { nodes, links } = useMemo(() => {
     const cols = 6;
@@ -13,7 +14,6 @@ export default function HeroNetwork() {
     const nodeList = [];
     for (let r = 0; r < rows; r++) {
       for (let c = 0; c < cols; c++) {
-        // slight pseudo-random jitter using deterministic seed
         const seed = r * 13 + c * 7;
         const jx = ((seed * 9301 + 49297) % 233280) / 233280 - 0.5;
         const jy = ((seed * 4817 + 11231) % 233280) / 233280 - 0.5;
@@ -25,7 +25,6 @@ export default function HeroNetwork() {
         });
       }
     }
-    // Build sparse link set
     const linkList = [];
     nodeList.forEach((n, i) => {
       const right = nodeList[i + 1];
@@ -57,12 +56,12 @@ export default function HeroNetwork() {
     >
       {/* base grid */}
       <div className="absolute inset-0 bg-grid-soft mask-radial opacity-70" />
-      {/* gold radial glow */}
+      {/* crimson radial glow — no gold */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse at 65% 45%, rgba(198,168,91,0.08), transparent 55%)",
+            "radial-gradient(ellipse at 65% 45%, rgba(139,0,0,0.07), transparent 55%)",
         }}
       />
 
@@ -76,9 +75,9 @@ export default function HeroNetwork() {
             <stop offset="0%" stopColor="#1F2630" stopOpacity="0.9" />
             <stop offset="100%" stopColor="#1F2630" stopOpacity="0.2" />
           </linearGradient>
-          <radialGradient id="nodeGold" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#D4B76A" stopOpacity="1" />
-            <stop offset="100%" stopColor="#C6A85B" stopOpacity="0.2" />
+          <radialGradient id="nodeCrimson" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#a61a1a" stopOpacity="1" />
+            <stop offset="100%" stopColor="#8b0000" stopOpacity="0.2" />
           </radialGradient>
         </defs>
 
@@ -99,15 +98,15 @@ export default function HeroNetwork() {
         {/* Nodes */}
         <g>
           {nodes.map((n) => {
-            const isGold = highlightIds.has(n.id);
+            const isHighlight = highlightIds.has(n.id);
             return (
               <g key={n.id}>
-                {isGold && (
+                {isHighlight && (
                   <circle
                     cx={n.x}
                     cy={n.y}
                     r="6"
-                    fill="url(#nodeGold)"
+                    fill="url(#nodeCrimson)"
                     opacity="0.35"
                     className="animate-pulseNode"
                     style={{ animationDelay: `${(n.key % 7) * 0.4}s` }}
@@ -116,8 +115,8 @@ export default function HeroNetwork() {
                 <circle
                   cx={n.x}
                   cy={n.y}
-                  r={isGold ? 1.8 : 1.2}
-                  fill={isGold ? "#D4B76A" : "#2A3340"}
+                  r={isHighlight ? 1.8 : 1.2}
+                  fill={isHighlight ? "#a61a1a" : "#2A3340"}
                 />
               </g>
             );
@@ -129,8 +128,8 @@ export default function HeroNetwork() {
           <rect x="24" y="18" width="512" height="464" rx="10" />
         </g>
 
-        {/* corner ticks */}
-        <g stroke="#C6A85B" strokeWidth="1">
+        {/* corner ticks — crimson */}
+        <g stroke="#8b0000" strokeWidth="1">
           <line x1="24" y1="18" x2="44" y2="18" />
           <line x1="24" y1="18" x2="24" y2="38" />
           <line x1="536" y1="482" x2="516" y2="482" />

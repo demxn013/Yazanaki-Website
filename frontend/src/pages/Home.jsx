@@ -88,7 +88,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats bar — loops through getLandingStats() */}
+      {/* Stats bar */}
       <section
         data-testid="stats-bar"
         className="border-b border-line bg-surface/60"
@@ -111,7 +111,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Structure preview — loops through empire.coreClans via getCoreClanList() */}
+      {/* Structure preview */}
       <section
         data-testid="structure-preview"
         className="max-w-container mx-auto px-6 py-24"
@@ -142,7 +142,7 @@ export default function Home() {
         <div className="hairline" />
       </div>
 
-      {/* Alliance preview — loops through empire.alliances */}
+      {/* Alliance preview */}
       <section
         data-testid="alliance-preview"
         className="max-w-container mx-auto px-6 py-24"
@@ -171,7 +171,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Philosophy — loops through philosophy data */}
+      {/* Philosophy */}
       <section data-testid="philosophy-section" className="border-t border-line">
         <div className="max-w-container mx-auto px-6 py-24">
           <SectionHeader
@@ -201,7 +201,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
     </div>
   );
 }

@@ -2,15 +2,16 @@ import React from "react";
 
 /**
  * Emblem
- * Reusable container that guarantees dark emblems stay legible.
+ * Reusable container that guarantees emblems display with original colors.
  *
  *  - 56x56 container with a slightly-lighter surface (#151A20)
  *  - Inner image capped to ~70% of the box, object-fit: contain
- *  - No color manipulation, no glow, no outline on the image itself
- *  - A subtle low-opacity gold ring, slightly stronger on hover
+ *  - NO CSS filters — original PNG colors preserved exactly
+ *  - NO tint overlays or color manipulation
+ *  - Subtle low-opacity crimson ring on hover
  *
- * Accepts either an image `src` (preferred when emblem assets exist)
- * or falls back to rendering the clan/faction `code` in accent gold.
+ * Falls back to rendering the clan/faction `code` in primary white text
+ * if no image src is provided.
  */
 export default function Emblem({
   src,
@@ -36,12 +37,13 @@ export default function Emblem({
           style={{
             maxWidth: innerMax,
             maxHeight: innerMax,
+            filter: "none",
           }}
           draggable={false}
         />
       ) : (
         <span
-          className="font-semibold tracking-[0.12em] text-accent"
+          className="font-semibold tracking-[0.12em] text-primary"
           style={{
             fontSize: size <= 40 ? 11 : 13,
             lineHeight: 1,

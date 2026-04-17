@@ -3,7 +3,7 @@ import React from "react";
 const statusStyles = {
   Active: "badge-active",
   Draft:
-    "text-accent border-accent/40 bg-accent/10 border rounded-full inline-flex items-center gap-1.5 text-[11px] tracking-[0.22em] uppercase px-2.5 py-1",
+    "text-secondary border-line bg-elevated border rounded-full inline-flex items-center gap-1.5 text-[11px] tracking-[0.22em] uppercase px-2.5 py-1",
   Inactive:
     "text-muted border-line bg-background border rounded-full inline-flex items-center gap-1.5 text-[11px] tracking-[0.22em] uppercase px-2.5 py-1",
 };
@@ -25,13 +25,13 @@ export default function MemberRow({ member, index = 0 }) {
       data-testid={`member-row-${empireId}`}
       className="border-t border-line hover:bg-elevated/40 transition-colors duration-150"
     >
-      <td className="px-5 py-4 font-mono text-[13px] text-accent tracking-[0.08em]">
+      <td className="px-5 py-4 font-mono text-[13px] text-primary tracking-[0.08em]">
         {empireId}
       </td>
       <td className="px-5 py-4 text-[14px] text-primary">{username}</td>
       <td className="px-5 py-4">
         <span className="inline-flex items-center gap-2 text-[12px] text-secondary tracking-[0.22em] uppercase">
-          <span className="w-1 h-1 rounded-full bg-accent" />
+          <span className="w-1 h-1 rounded-full bg-muted" />
           {clan}
         </span>
       </td>

@@ -3,6 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { empire } from "../data";
 
+// Default: white text. Hover: gold. No active indicator dot or underline.
 const linkBase =
   "text-[14px] tracking-tight text-primary hover:text-accent transition-colors duration-150";
 
@@ -33,7 +34,7 @@ export default function Navbar() {
           className="flex items-center gap-3"
         >
           <span className="inline-block w-[22px] h-[22px] rounded-[6px] border border-line relative overflow-hidden">
-            <span className="absolute inset-[3px] rounded-[3px] bg-accent/90" />
+            <span className="absolute inset-[3px] rounded-[3px] bg-crimson/90" />
             <span className="absolute inset-[7px] rounded-[2px] bg-background" />
           </span>
           <span className="text-[15px] font-semibold tracking-[0.22em] text-primary">

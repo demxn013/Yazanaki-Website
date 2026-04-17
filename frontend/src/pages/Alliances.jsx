@@ -58,7 +58,7 @@ export default function Alliances() {
                 data-testid={`alliance-system-${i}`}
                 className="card-base p-7 flex flex-col gap-4"
               >
-                <div className="w-10 h-10 rounded-[10px] border border-line flex items-center justify-center text-accent">
+                <div className="w-10 h-10 rounded-[10px] border border-line flex items-center justify-center text-secondary">
                   <Icon name={c.icon} size={16} />
                 </div>
                 <h4 className="text-[18px] text-primary font-semibold">
@@ -73,7 +73,7 @@ export default function Alliances() {
         </div>
       </section>
 
-      {/* Alliance Process — informational only, no form */}
+      {/* Alliance Process */}
       <section
         className="border-t border-line"
         data-testid="alliance-process-section"
@@ -93,7 +93,7 @@ export default function Alliances() {
                 className="card-base p-7 flex gap-5 items-start animate-fadeUp"
                 style={{ animationDelay: `${i * 80}ms` }}
               >
-                <div className="w-10 h-10 rounded-[10px] border border-line bg-elevated flex items-center justify-center text-accent text-[13px] tracking-[0.14em] font-medium shrink-0">
+                <div className="w-10 h-10 rounded-[10px] border border-line bg-elevated flex items-center justify-center text-secondary text-[13px] tracking-[0.14em] font-medium shrink-0">
                   {String(s.step).padStart(2, "0")}
                 </div>
                 <div>

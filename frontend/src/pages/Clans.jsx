@@ -4,8 +4,6 @@ import ClanCard from "../components/ClanCard";
 import { Icon } from "../components/Icon";
 import { getCoreClanList } from "../data";
 
-// Clan-page principles — clans represent Yazanaki presence across servers.
-// They are not specialized divisions (no "governance clan" or "economy clan").
 const CLAN_PRINCIPLES = [
   {
     icon: "Lock",

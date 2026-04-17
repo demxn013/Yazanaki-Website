@@ -16,17 +16,18 @@ export default function AllianceCard({
   return (
     <article
       data-testid={`alliance-card-${slug}`}
-      className="relative p-7 rounded-[12px] border border-line overflow-hidden group transition-colors duration-200 hover:border-accent/70"
+      className="relative p-7 rounded-[12px] border border-line overflow-hidden group transition-colors duration-200 hover:border-crimson"
       style={{
         background:
           "linear-gradient(180deg, rgba(23,28,34,0.9) 0%, rgba(17,21,26,0.9) 100%)",
       }}
     >
+      {/* Subtle crimson radial glow — no gold */}
       <div
-        className="absolute inset-0 opacity-40 pointer-events-none"
+        className="absolute inset-0 opacity-30 pointer-events-none"
         style={{
           background:
-            "radial-gradient(600px circle at 85% -20%, rgba(198,168,91,0.10), transparent 55%)",
+            "radial-gradient(600px circle at 85% -20%, rgba(139,0,0,0.12), transparent 55%)",
         }}
       />
       <div className="relative flex flex-col gap-5">
@@ -48,7 +49,6 @@ export default function AllianceCard({
             </div>
           </div>
 
-          {/* Crimson "Active" state — used strictly for the active marker */}
           <span
             className="badge-active"
             data-testid={`alliance-status-${slug}`}
