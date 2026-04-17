@@ -2,8 +2,10 @@ import React from "react";
 
 const statusStyles = {
   Active: "badge-active",
-  Reserve: "text-secondary border-line bg-elevated border rounded-full inline-flex items-center gap-1.5 text-[11px] tracking-[0.22em] uppercase px-2.5 py-1",
-  Inactive: "text-muted border-line bg-background border rounded-full inline-flex items-center gap-1.5 text-[11px] tracking-[0.22em] uppercase px-2.5 py-1",
+  Draft:
+    "text-accent border-accent/40 bg-accent/10 border rounded-full inline-flex items-center gap-1.5 text-[11px] tracking-[0.22em] uppercase px-2.5 py-1",
+  Inactive:
+    "text-muted border-line bg-background border rounded-full inline-flex items-center gap-1.5 text-[11px] tracking-[0.22em] uppercase px-2.5 py-1",
 };
 
 const roleStyles = {

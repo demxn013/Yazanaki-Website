@@ -5,7 +5,7 @@ import Emblem from "./Emblem";
 export default function ClanCard({
   code,
   name,
-  role,
+  server,
   description,
   emblem,
   index = 0,
@@ -42,9 +42,14 @@ export default function ClanCard({
       <div className="hairline" />
 
       <div className="flex flex-col gap-3">
-        <div className="text-[13px] uppercase tracking-[0.22em] text-muted">
-          {role}
-        </div>
+        {server && (
+          <div
+            className="text-[12px] uppercase tracking-[0.22em] text-muted"
+            data-testid={`clan-server-${code.toLowerCase()}`}
+          >
+            Server · {server}
+          </div>
+        )}
         <p className="text-[14px] leading-[1.65] text-secondary">
           {description}
         </p>

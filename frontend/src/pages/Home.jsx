@@ -119,8 +119,8 @@ export default function Home() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <SectionHeader
             eyebrow="Core Structure"
-            title="Five permanent divisions."
-            description="Fixed internal clans that form the Yazanaki Empire. Not joinable. Not rotating. Always present."
+            title="Five autonomous clans."
+            description="Yazanaki's clans represent the empire's presence across different servers. Each operates independently — not tied to any single specialization."
           />
           <Link
             to="/clans"

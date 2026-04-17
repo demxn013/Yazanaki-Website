@@ -1,21 +1,30 @@
 // Alliance detail records, keyed by code.
 // Alliances page reads empire.alliances and hydrates via getAlliance().
+// Each alliance is anchored to: a Yazanaki clan contact, a server, and a type.
 export const alliances = {
   Excalibur: {
     code: "Excalibur",
     name: "Excalibur",
     label: "Allied Faction",
     status: "Active",
-    relation: "Formal",
-    control: "External",
-    terms: "Scalable",
+    // New structured fields (replaces Relation / Control / Terms)
+    clan: "SNU",
+    server: "SV-01",
+    type: "Mutual Defense Pact",
+    emblem: "/assets/emblems/excalibur.png",
     description:
       "Independent external faction operating under a structured agreement with the Yazanaki Empire. Not governed internally.",
   },
 };
 
+// Valid agreement types for alliances (kept minimal, UI reads from here).
+export const allianceTypes = [
+  "Mutual Defense Pact",
+  "Non-Aggression Pact",
+  "Full Alliance",
+];
+
 // Structured, informational steps shown instead of a form.
-// Keep these stable — the Alliance Process section reads from here.
 export const allianceProcess = [
   {
     step: 1,

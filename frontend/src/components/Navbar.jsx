@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 import { empire } from "../data";
 
 const linkBase =
-  "relative text-[14px] tracking-tight text-secondary hover:text-primary transition-colors duration-150";
+  "relative text-[14px] tracking-tight text-primary hover:text-accent transition-colors duration-150";
 const linkActive = "text-primary";
 
 function DesktopLink({ to, testId, children }) {
@@ -59,9 +59,6 @@ export default function Navbar() {
           <DesktopLink to="/alliances" testId="nav-alliances-link">
             Alliances
           </DesktopLink>
-          <DesktopLink to="/systems" testId="nav-systems-link">
-            Systems
-          </DesktopLink>
           <DesktopLink to="/registry" testId="nav-registry-link">
             Registry
           </DesktopLink>
@@ -109,14 +106,6 @@ export default function Navbar() {
               className={linkBase}
             >
               Alliances
-            </NavLink>
-            <NavLink
-              onClick={() => setOpen(false)}
-              to="/systems"
-              data-testid="nav-mobile-systems"
-              className={linkBase}
-            >
-              Systems
             </NavLink>
             <NavLink
               onClick={() => setOpen(false)}

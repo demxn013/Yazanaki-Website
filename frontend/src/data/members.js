@@ -14,4 +14,4 @@ export const members = [
 // Allowed enums — lets UI render filters, badges, and validators without
 // duplicating these strings across files.
 export const memberRoles = ["Leader", "Officer", "Member", "Initiate"];
-export const memberStatuses = ["Active", "Reserve", "Inactive"];
+export const memberStatuses = ["Active", "Draft", "Inactive"];

@@ -1,50 +1,62 @@
 // Core division detail records, keyed by code.
-// The Clans page does NOT hardcode this list — it reads empire.coreClans
-// and hydrates each code through getClan().
+// Clans represent Yazanaki presence across different servers — they are
+// autonomous branches, NOT specialized departments. Empire-wide operations
+// (strategy, coordination, economy) are handled by selected members drawn
+// from all clans, not by any single clan.
 export const clans = {
   SNU: {
     code: "SNU",
     name: "SNU",
-    role: "Operational Core",
+    server: "SV-01",
     label: "Permanent Division",
     locked: true,
+    emblem: "/assets/emblems/snu.png",
+    flag: "/assets/flags/snu.png",
     description:
-      "Directs internal operations across divisions. Maintains the command cadence that holds the empire together under a single strategic posture.",
+      "A fully autonomous Yazanaki clan representing the empire on its assigned server. Operates independently within empire doctrine.",
   },
   ANO: {
     code: "ANO",
     name: "ANO",
-    role: "Internal Governance",
+    server: "SV-02",
     label: "Permanent Division",
     locked: true,
+    emblem: "/assets/emblems/ano.png",
+    flag: "/assets/flags/ano.png",
     description:
-      "Oversees governance protocols, internal doctrine, and the enforcement of structural rules across all divisions.",
+      "A fully autonomous Yazanaki clan representing the empire on its assigned server. Operates independently within empire doctrine.",
   },
   ONF: {
     code: "ONF",
     name: "ONF",
-    role: "Economic Infrastructure",
+    server: "SV-03",
     label: "Permanent Division",
     locked: true,
+    emblem: "/assets/emblems/onf.png",
+    flag: "/assets/flags/onf.png",
     description:
-      "Controls trade pipelines, resource flow, and market positioning. Translates controlled expansion into measurable economic output.",
+      "A fully autonomous Yazanaki clan representing the empire on its assigned server. Operates independently within empire doctrine.",
   },
   ONA: {
     code: "ONA",
     name: "ONA",
-    role: "Strategic Analysis",
+    server: "SV-04",
     label: "Permanent Division",
     locked: true,
+    emblem: "/assets/emblems/ona.png",
+    flag: "/assets/flags/ona.png",
     description:
-      "Maps the wider landscape, monitors external movement, and produces the intelligence picture used to direct expansion.",
+      "A fully autonomous Yazanaki clan representing the empire on its assigned server. Operates independently within empire doctrine.",
   },
   KASAII: {
     code: "KASAII",
     name: "KASAII",
-    role: "Perimeter Control",
+    server: "SV-05",
     label: "Permanent Division",
     locked: true,
+    emblem: "/assets/emblems/kasaii.png",
+    flag: "/assets/flags/kasaii.png",
     description:
-      "Holds defensive structure and perimeter integrity. Responds to external pressure within the framework of empire doctrine.",
+      "A fully autonomous Yazanaki clan representing the empire on its assigned server. Operates independently within empire doctrine.",
   },
 };

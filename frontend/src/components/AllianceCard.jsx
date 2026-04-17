@@ -8,10 +8,14 @@ export default function AllianceCard({
   status,
   description,
   emblem,
+  clan,
+  server,
+  type,
 }) {
+  const slug = (code || name).toLowerCase();
   return (
     <article
-      data-testid={`alliance-card-${(code || name).toLowerCase()}`}
+      data-testid={`alliance-card-${slug}`}
       className="relative p-7 rounded-[12px] border border-line overflow-hidden group transition-colors duration-200 hover:border-accent/70"
       style={{
         background:
@@ -32,7 +36,7 @@ export default function AllianceCard({
               code={code || name}
               src={emblem}
               size={56}
-              testId={`alliance-emblem-${(code || name).toLowerCase()}`}
+              testId={`alliance-emblem-${slug}`}
             />
             <div>
               <h3 className="text-[22px] font-semibold text-primary tracking-tight leading-none">
@@ -47,7 +51,7 @@ export default function AllianceCard({
           {/* Crimson "Active" state — used strictly for the active marker */}
           <span
             className="badge-active"
-            data-testid={`alliance-status-${(code || name).toLowerCase()}`}
+            data-testid={`alliance-status-${slug}`}
           >
             <span className="pulse" />
             {status}
@@ -61,23 +65,32 @@ export default function AllianceCard({
         </p>
 
         <div className="grid grid-cols-3 gap-4 pt-2">
-          <div className="p-3 rounded-[10px] border border-line bg-background/60">
+          <div
+            className="p-3 rounded-[10px] border border-line bg-background/60"
+            data-testid={`alliance-field-clan-${slug}`}
+          >
             <div className="text-[11px] tracking-[0.22em] text-muted uppercase">
-              Relation
+              Clan
             </div>
-            <div className="text-[14px] text-primary mt-1">Formal</div>
+            <div className="text-[14px] text-primary mt-1">{clan || "—"}</div>
           </div>
-          <div className="p-3 rounded-[10px] border border-line bg-background/60">
+          <div
+            className="p-3 rounded-[10px] border border-line bg-background/60"
+            data-testid={`alliance-field-server-${slug}`}
+          >
             <div className="text-[11px] tracking-[0.22em] text-muted uppercase">
-              Control
+              Server
             </div>
-            <div className="text-[14px] text-primary mt-1">External</div>
+            <div className="text-[14px] text-primary mt-1">{server || "—"}</div>
           </div>
-          <div className="p-3 rounded-[10px] border border-line bg-background/60">
+          <div
+            className="p-3 rounded-[10px] border border-line bg-background/60"
+            data-testid={`alliance-field-type-${slug}`}
+          >
             <div className="text-[11px] tracking-[0.22em] text-muted uppercase">
-              Terms
+              Type
             </div>
-            <div className="text-[14px] text-primary mt-1">Scalable</div>
+            <div className="text-[14px] text-primary mt-1">{type || "—"}</div>
           </div>
         </div>
       </div>

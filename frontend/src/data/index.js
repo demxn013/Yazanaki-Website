@@ -6,7 +6,6 @@ import { clans } from "./clans";
 import { alliances, allianceProcess } from "./alliances";
 import { members, memberRoles, memberStatuses } from "./members";
 import {
-  systems,
   allianceSystemColumns,
   clansPrinciples,
   philosophy,
@@ -20,7 +19,6 @@ export {
   members,
   memberRoles,
   memberStatuses,
-  systems,
   allianceSystemColumns,
   clansPrinciples,
   philosophy,

@@ -1,44 +1,6 @@
-// Systems / layers content. Home and Systems pages both read from here.
-// Icon names are strings — resolved in the component via a small lookup map
-// so this data file stays framework-free (portable to an API later).
-export const systems = [
-  {
-    key: "economy",
-    icon: "TrendingUp",
-    title: "Economy",
-    lead: "Measured trade. Engineered efficiency.",
-    points: [
-      "Optimized trade pipelines across divisions",
-      "Resource flow efficiency as a governance metric",
-      "Market awareness, not market speculation",
-      "Controlled reinvestment into structural expansion",
-    ],
-  },
-  {
-    key: "governance",
-    icon: "Landmark",
-    title: "Governance",
-    lead: "Centralized authority. Structured divisions.",
-    points: [
-      "Single governance layer across all five divisions",
-      "Defined roles for SNU, ANO, ONF, ONA, and KASAII",
-      "Internal doctrine reviewed, not improvised",
-      "No personality-driven leadership vacuums",
-    ],
-  },
-  {
-    key: "alliances",
-    icon: "Network",
-    title: "Alliances",
-    lead: "Contract-based. Scalable by design.",
-    points: [
-      "Formal written terms over informal understandings",
-      "Scalable agreements by faction size and posture",
-      "Economic integration without internal absorption",
-      "Reviewable clauses, measurable contribution",
-    ],
-  },
-];
+// Systems page has been removed. Shared content (alliance system columns,
+// clan principles, philosophy) stays here because it's consumed by the
+// Landing, Clans, and Alliances pages.
 
 // Three-column explanation used on the Alliances page.
 export const allianceSystemColumns = [
