@@ -35,7 +35,7 @@ export default function Home() {
         <div className="max-w-container mx-auto px-6 pt-20 pb-24 md:pt-28 md:pb-32 grid md:grid-cols-2 gap-12 md:gap-10 items-center relative">
           <div className="flex flex-col gap-7 animate-fadeUp">
             <div className="flex items-center gap-3 text-[12px] tracking-[0.28em] text-muted uppercase">
-              <span className="w-8 h-px bg-accent" />
+              <span className="w-8 h-px bg-line" />
               Structured Empire · Private Network
             </div>
 
@@ -187,10 +187,10 @@ export default function Home() {
                 className="card-base p-7 animate-fadeUp"
                 style={{ animationDelay: `${i * 100}ms` }}
               >
-                <div className="text-[12px] tracking-[0.28em] text-accent uppercase mb-5">
+                <div className="text-[12px] tracking-[0.28em] text-muted uppercase mb-5">
                   {String(i + 1).padStart(2, "0")} / {String(philosophy.length).padStart(2, "0")}
                 </div>
-                <h3 className="text-[20px] font-semibold text-primary leading-snug divider-gold mb-4">
+                <h3 className="text-[20px] font-semibold text-primary leading-snug mb-4">
                   {p.title}
                 </h3>
                 <p className="text-[14px] leading-[1.7] text-secondary">

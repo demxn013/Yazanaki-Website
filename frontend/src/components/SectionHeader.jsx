@@ -14,7 +14,7 @@ export default function SectionHeader({
     >
       {eyebrow && (
         <div
-          className="text-[12px] tracking-[0.3em] text-accent uppercase"
+          className="text-[12px] tracking-[0.3em] text-muted uppercase"
           data-testid="section-eyebrow"
         >
           {eyebrow}

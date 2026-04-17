@@ -44,7 +44,7 @@ export default function Clans() {
             data-testid="clans-autonomy-note"
             className="card-base p-7 mt-10"
           >
-            <div className="text-[12px] tracking-[0.3em] text-accent uppercase mb-4">
+            <div className="text-[12px] tracking-[0.3em] text-muted uppercase mb-4">
               How coordination works
             </div>
             <p className="text-[15px] leading-[1.75] text-secondary max-w-3xl">
@@ -65,7 +65,7 @@ export default function Clans() {
                 data-testid={`clans-principle-${i}`}
                 className="card-base p-5 flex items-start gap-4"
               >
-                <div className="w-9 h-9 rounded-[10px] border border-line flex items-center justify-center text-accent shrink-0">
+                <div className="w-9 h-9 rounded-[10px] border border-line flex items-center justify-center text-secondary shrink-0">
                   <Icon name={p.icon} size={16} />
                 </div>
                 <div>

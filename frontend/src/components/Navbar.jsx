@@ -4,24 +4,16 @@ import { Menu, X } from "lucide-react";
 import { empire } from "../data";
 
 const linkBase =
-  "relative text-[14px] tracking-tight text-primary hover:text-accent transition-colors duration-150";
-const linkActive = "text-primary";
+  "text-[14px] tracking-tight text-primary hover:text-accent transition-colors duration-150";
 
 function DesktopLink({ to, testId, children }) {
   return (
     <NavLink
       to={to}
       data-testid={testId}
-      className={({ isActive }) =>
-        `${linkBase} ${isActive ? linkActive : ""}`
-      }
+      className={linkBase}
     >
-      {({ isActive }) => (
-        <span className="relative inline-block">
-          {children}
-          {isActive && <span className="nav-active-marker" aria-hidden />}
-        </span>
-      )}
+      {children}
     </NavLink>
   );
 }

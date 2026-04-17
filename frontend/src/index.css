@@ -72,13 +72,9 @@ h3 {
   mask-image: radial-gradient(ellipse at center, #000 40%, transparent 75%);
 }
 
-.divider-gold::after {
-  content: "";
-  display: block;
-  width: 32px;
+.hairline {
   height: 1px;
-  background: #c6a85b;
-  margin-top: 16px;
+  background: linear-gradient(to right, transparent, #1f2630, transparent);
 }
 
 /* Button base utility */
@@ -161,11 +157,6 @@ h3 {
   border-radius: 999px;
 }
 
-.hairline {
-  height: 1px;
-  background: linear-gradient(to right, transparent, #1f2630, transparent);
-}
-
 /* ---------- Emblem container ---------- */
 .emblem-container {
   background: #151a20;
@@ -217,15 +208,4 @@ h3 {
   border-radius: 999px;
   background: #8b0000;
   box-shadow: 0 0 0 3px rgba(139, 0, 0, 0.25);
-}
-.nav-active-marker {
-  position: absolute;
-  left: 50%;
-  bottom: -6px;
-  transform: translateX(-50%);
-  width: 5px;
-  height: 5px;
-  border-radius: 999px;
-  background: #8b0000;
-  box-shadow: 0 0 0 3px rgba(139, 0, 0, 0.2);
 }
