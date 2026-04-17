@@ -11,6 +11,7 @@ import Home from "./pages/Home";
 import Clans from "./pages/Clans";
 import Alliances from "./pages/Alliances";
 import Systems from "./pages/Systems";
+import Members from "./pages/Members";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -40,6 +41,8 @@ export default function App() {
           <Route path="/clans" element={<Clans />} />
           <Route path="/alliances" element={<Alliances />} />
           <Route path="/systems" element={<Systems />} />
+          <Route path="/registry" element={<Members />} />
+          <Route path="/members" element={<Members />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </Layout>

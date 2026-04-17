@@ -6,31 +6,19 @@ import ClanCard from "../components/ClanCard";
 import AllianceCard from "../components/AllianceCard";
 import SectionHeader from "../components/SectionHeader";
 import ApplyDialog from "../components/ApplyDialog";
-import { CORE_DIVISIONS, ALLIANCES, EMPIRE } from "../data";
-
-const STATS = [
-  { label: "Core Divisions", value: "5" },
-  { label: "Active Alliance", value: "1" },
-  { label: "Governance", value: "Structured" },
-];
-
-const PHILOSOPHY = [
-  {
-    title: "Systems over personalities.",
-    body: "Authority runs through structure, not individuals. The empire persists because its systems do.",
-  },
-  {
-    title: "Structure over chaos.",
-    body: "Every division, every relationship, every decision is placed inside a defined framework.",
-  },
-  {
-    title: "Expansion through control.",
-    body: "Growth is earned, measured, and retained. Never speculative, never performative.",
-  },
-];
+import {
+  empire,
+  getCoreClanList,
+  getAllianceList,
+  getLandingStats,
+  philosophy,
+} from "../data";
 
 export default function Home() {
   const [applyOpen, setApplyOpen] = useState(false);
+  const coreClans = getCoreClanList();
+  const alliances = getAllianceList();
+  const stats = getLandingStats();
 
   return (
     <div data-testid="home-page">
@@ -54,9 +42,9 @@ export default function Home() {
             </div>
 
             <h1 className="text-[44px] md:text-[56px] leading-[1.04] font-semibold text-primary tracking-tight">
-              {EMPIRE.name}
+              {empire.name}
               <span className="block text-secondary font-normal text-[22px] md:text-[24px] mt-4 max-w-lg leading-[1.55]">
-                {EMPIRE.tagline}
+                {empire.tagline}
               </span>
             </h1>
 
@@ -80,8 +68,8 @@ export default function Home() {
 
             <div className="pt-8 grid grid-cols-3 gap-6 max-w-md">
               {[
-                { k: "Divisions", v: "05" },
-                { k: "Alliance", v: "01" },
+                { k: "Divisions", v: String(empire.coreClans.length).padStart(2, "0") },
+                { k: "Alliance", v: String(empire.alliances.length).padStart(2, "0") },
                 { k: "Posture", v: "Stable" },
               ].map((s) => (
                 <div key={s.k} className="flex flex-col gap-1.5">
@@ -102,13 +90,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats bar */}
+      {/* Stats bar — loops through getLandingStats() */}
       <section
         data-testid="stats-bar"
         className="border-b border-line bg-surface/60"
       >
         <div className="max-w-container mx-auto px-6 py-8 grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-line">
-          {STATS.map((s, i) => (
+          {stats.map((s, i) => (
             <div
               key={s.label}
               data-testid={`stats-item-${i}`}
@@ -125,8 +113,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Structure preview */}
-      <section data-testid="structure-preview" className="max-w-container mx-auto px-6 py-24">
+      {/* Structure preview — loops through empire.coreClans via getCoreClanList() */}
+      <section
+        data-testid="structure-preview"
+        className="max-w-container mx-auto px-6 py-24"
+      >
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <SectionHeader
             eyebrow="Core Structure"
@@ -143,7 +134,7 @@ export default function Home() {
           </Link>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {CORE_DIVISIONS.map((c, i) => (
+          {coreClans.map((c, i) => (
             <ClanCard key={c.code} {...c} index={i} />
           ))}
         </div>
@@ -153,8 +144,11 @@ export default function Home() {
         <div className="hairline" />
       </div>
 
-      {/* Alliance preview */}
-      <section data-testid="alliance-preview" className="max-w-container mx-auto px-6 py-24">
+      {/* Alliance preview — loops through empire.alliances */}
+      <section
+        data-testid="alliance-preview"
+        className="max-w-container mx-auto px-6 py-24"
+      >
         <div className="grid md:grid-cols-[1fr_1.4fr] gap-10 md:gap-14 items-start">
           <SectionHeader
             eyebrow="External Alliance"
@@ -162,7 +156,7 @@ export default function Home() {
             description="Yazanaki does not absorb external factions. It contracts with them — formally, economically, and on scalable terms."
           />
           <div className="flex flex-col gap-5">
-            {ALLIANCES.map((a) => (
+            {alliances.map((a) => (
               <AllianceCard key={a.code} {...a} />
             ))}
             <button
@@ -177,7 +171,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Philosophy */}
+      {/* Philosophy — loops through philosophy data */}
       <section data-testid="philosophy-section" className="border-t border-line">
         <div className="max-w-container mx-auto px-6 py-24">
           <SectionHeader
@@ -186,7 +180,7 @@ export default function Home() {
             align="center"
           />
           <div className="grid md:grid-cols-3 gap-5 mt-14">
-            {PHILOSOPHY.map((p, i) => (
+            {philosophy.map((p, i) => (
               <div
                 key={p.title}
                 data-testid={`philosophy-item-${i}`}
@@ -194,7 +188,7 @@ export default function Home() {
                 style={{ animationDelay: `${i * 100}ms` }}
               >
                 <div className="text-[12px] tracking-[0.28em] text-accent uppercase mb-5">
-                  {String(i + 1).padStart(2, "0")} / 03
+                  {String(i + 1).padStart(2, "0")} / {String(philosophy.length).padStart(2, "0")}
                 </div>
                 <h3 className="text-[20px] font-semibold text-primary leading-snug divider-gold mb-4">
                   {p.title}

@@ -1,45 +1,7 @@
 import React from "react";
 import SectionHeader from "../components/SectionHeader";
-import { TrendingUp, Landmark, Network } from "lucide-react";
-
-const SYSTEMS = [
-  {
-    icon: TrendingUp,
-    key: "economy",
-    title: "Economy",
-    lead: "Measured trade. Engineered efficiency.",
-    points: [
-      "Optimized trade pipelines across divisions",
-      "Resource flow efficiency as a governance metric",
-      "Market awareness, not market speculation",
-      "Controlled reinvestment into structural expansion",
-    ],
-  },
-  {
-    icon: Landmark,
-    key: "governance",
-    title: "Governance",
-    lead: "Centralized authority. Structured divisions.",
-    points: [
-      "Single governance layer across all five divisions",
-      "Defined roles for SNU, ANO, ONF, ONA, and KASAII",
-      "Internal doctrine reviewed, not improvised",
-      "No personality-driven leadership vacuums",
-    ],
-  },
-  {
-    icon: Network,
-    key: "alliances",
-    title: "Alliances",
-    lead: "Contract-based. Scalable by design.",
-    points: [
-      "Formal written terms over informal understandings",
-      "Scalable agreements by faction size and posture",
-      "Economic integration without internal absorption",
-      "Reviewable clauses, measurable contribution",
-    ],
-  },
-];
+import { Icon } from "../components/Icon";
+import { systems } from "../data";
 
 export default function Systems() {
   return (
@@ -55,7 +17,7 @@ export default function Systems() {
       </section>
 
       <section className="max-w-container mx-auto px-6 py-20 flex flex-col gap-5">
-        {SYSTEMS.map((s, i) => (
+        {systems.map((s, i) => (
           <article
             key={s.key}
             data-testid={`system-${s.key}`}
@@ -64,7 +26,7 @@ export default function Systems() {
           >
             <div className="flex md:flex-col gap-5 md:gap-6 items-start">
               <div className="w-12 h-12 rounded-[12px] border border-line flex items-center justify-center text-accent">
-                <s.icon size={18} />
+                <Icon name={s.icon} size={18} />
               </div>
               <div>
                 <div className="text-[12px] tracking-[0.3em] text-muted uppercase">

@@ -1,28 +1,12 @@
 import React from "react";
 import SectionHeader from "../components/SectionHeader";
 import ClanCard from "../components/ClanCard";
-import { CORE_DIVISIONS } from "../data";
-import { Lock, Layers, ShieldCheck } from "lucide-react";
-
-const PRINCIPLES = [
-  {
-    icon: Lock,
-    title: "Permanent",
-    body: "Divisions are fixed. Not replaced. Not absorbed. Not rotated.",
-  },
-  {
-    icon: Layers,
-    title: "Structured",
-    body: "Each division holds a clearly defined role within the empire.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Internal",
-    body: "Operating under a single governance layer, not independent clans.",
-  },
-];
+import { Icon } from "../components/Icon";
+import { getCoreClanList, clansPrinciples } from "../data";
 
 export default function Clans() {
+  const coreClans = getCoreClanList();
+
   return (
     <div data-testid="clans-page">
       <section className="border-b border-line">
@@ -30,17 +14,17 @@ export default function Clans() {
           <SectionHeader
             eyebrow="Core Divisions"
             title="Permanent internal structure of the Yazanaki Empire."
-            description="The five internal divisions are not recruitment brands. They are fixed components of the empire's command framework — each with a defined operational role."
+            description="The internal divisions are not recruitment brands. They are fixed components of the empire's command framework — each with a defined operational role."
           />
           <div className="grid sm:grid-cols-3 gap-4 mt-12">
-            {PRINCIPLES.map((p, i) => (
+            {clansPrinciples.map((p, i) => (
               <div
                 key={p.title}
                 data-testid={`clans-principle-${i}`}
                 className="card-base p-5 flex items-start gap-4"
               >
                 <div className="w-9 h-9 rounded-[10px] border border-line flex items-center justify-center text-accent shrink-0">
-                  <p.icon size={16} />
+                  <Icon name={p.icon} size={16} />
                 </div>
                 <div>
                   <div className="text-[15px] text-primary font-medium">
@@ -58,7 +42,7 @@ export default function Clans() {
 
       <section className="max-w-container mx-auto px-6 py-20">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {CORE_DIVISIONS.map((c, i) => (
+          {coreClans.map((c, i) => (
             <ClanCard key={c.code} {...c} index={i} />
           ))}
         </div>

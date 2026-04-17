@@ -62,6 +62,15 @@ export default function Navbar() {
           >
             Systems
           </NavLink>
+          <NavLink
+            to="/registry"
+            data-testid="nav-registry-link"
+            className={({ isActive }) =>
+              `${linkBase} ${isActive ? linkActive : ""}`
+            }
+          >
+            Registry
+          </NavLink>
         </nav>
 
         <div className="flex items-center gap-3">
@@ -112,6 +121,14 @@ export default function Navbar() {
               className={linkBase}
             >
               Systems
+            </NavLink>
+            <NavLink
+              onClick={() => setOpen(false)}
+              to="/registry"
+              data-testid="nav-mobile-registry"
+              className={linkBase}
+            >
+              Registry
             </NavLink>
             <button
               data-testid="nav-mobile-apply"

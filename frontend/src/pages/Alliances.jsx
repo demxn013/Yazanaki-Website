@@ -2,29 +2,13 @@ import React, { useState } from "react";
 import SectionHeader from "../components/SectionHeader";
 import AllianceCard from "../components/AllianceCard";
 import ApplyDialog from "../components/ApplyDialog";
-import { ALLIANCES } from "../data";
-import { FileSignature, Maximize2, Coins, ArrowRight } from "lucide-react";
-
-const SYSTEM_COLUMNS = [
-  {
-    icon: FileSignature,
-    title: "Structured Agreements",
-    body: "All alliances operate under formal, written terms. Nothing verbal. Nothing ambiguous. Each clause is reviewable.",
-  },
-  {
-    icon: Maximize2,
-    title: "Scalable Terms",
-    body: "Agreements adapt to the allied faction's size, specialization, and posture. Not one-size-fits-all.",
-  },
-  {
-    icon: Coins,
-    title: "Economic Integration",
-    body: "Controlled integration into trade flows and resource pipelines. Alliance value is measurable, not symbolic.",
-  },
-];
+import { Icon } from "../components/Icon";
+import { getAllianceList, allianceSystemColumns, empire } from "../data";
+import { ArrowRight } from "lucide-react";
 
 export default function Alliances() {
   const [applyOpen, setApplyOpen] = useState(false);
+  const alliances = getAllianceList();
 
   return (
     <div data-testid="alliances-page">
@@ -43,12 +27,16 @@ export default function Alliances() {
           <h3 className="text-[22px] font-semibold text-primary tracking-tight">
             Active Alliances
           </h3>
-          <div className="text-[12px] tracking-[0.26em] text-muted uppercase">
-            01 / 01
+          <div
+            className="text-[12px] tracking-[0.26em] text-muted uppercase"
+            data-testid="alliances-count"
+          >
+            {String(alliances.length).padStart(2, "0")} /{" "}
+            {String(empire.alliances.length).padStart(2, "0")}
           </div>
         </div>
         <div className="grid gap-5">
-          {ALLIANCES.map((a) => (
+          {alliances.map((a) => (
             <AllianceCard key={a.code} {...a} />
           ))}
         </div>
@@ -61,14 +49,14 @@ export default function Alliances() {
             title="How external integration works."
           />
           <div className="grid md:grid-cols-3 gap-5 mt-12">
-            {SYSTEM_COLUMNS.map((c, i) => (
+            {allianceSystemColumns.map((c, i) => (
               <div
                 key={c.title}
                 data-testid={`alliance-system-${i}`}
                 className="card-base p-7 flex flex-col gap-4"
               >
                 <div className="w-10 h-10 rounded-[10px] border border-line flex items-center justify-center text-accent">
-                  <c.icon size={16} />
+                  <Icon name={c.icon} size={16} />
                 </div>
                 <h4 className="text-[18px] text-primary font-semibold">
                   {c.title}

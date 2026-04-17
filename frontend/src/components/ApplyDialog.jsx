@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { X, CheckCircle2, AlertCircle } from "lucide-react";
 import axios from "axios";
-import { ALLIANCE_OPTIONS } from "../data";
+import { allianceOptions as ALLIANCE_OPTIONS } from "../data";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
