@@ -1,0 +1,142 @@
+{
+  "project_overview": {
+    "name": "Yazanaki Empire",
+    "theme": "Dark",
+    "archetype": "Swiss & High-Contrast (Archetype 4) merged with Jewel & Luxury (Archetype 5) for premium structure",
+    "vibe": "Professional system, private network, controlled organization. NO gaming tropes."
+  },
+  "color_palette": {
+    "background": "#0B0D10",
+    "surface": "#11151A",
+    "elevated": "#171C22",
+    "text_primary": "#E8ECF1",
+    "text_secondary": "#9AA4AF",
+    "text_muted": "#6B7380",
+    "accent": "#C6A85B",
+    "accent_hover": "#D4B76A",
+    "border": "#1F2630"
+  },
+  "tailwind_config_instructions": {
+    "colors": {
+      "background": "#0B0D10",
+      "surface": "#11151A",
+      "elevated": "#171C22",
+      "primary": "#E8ECF1",
+      "secondary": "#9AA4AF",
+      "muted": "#6B7380",
+      "accent": {
+        "DEFAULT": "#C6A85B",
+        "hover": "#D4B76A"
+      },
+      "border": "#1F2630"
+    }
+  },
+  "typography": {
+    "font_family": "Inter (Locked, do not change)",
+    "scale": {
+      "h1": {
+        "size": "48px",
+        "weight": "semibold",
+        "letter_spacing": "tracking-tight"
+      },
+      "h2": {
+        "size": "32px",
+        "weight": "semibold",
+        "letter_spacing": "tracking-tight"
+      },
+      "h3": {
+        "size": "22px",
+        "weight": "medium",
+        "letter_spacing": "tracking-normal"
+      },
+      "body": {
+        "size": "15px",
+        "weight": "regular",
+        "letter_spacing": "tracking-normal"
+      },
+      "small": {
+        "size": "13px",
+        "weight": "regular"
+      }
+    },
+    "guidelines": "Slight negative letter spacing on headings. Professional, readable, no gaming or edgy display fonts."
+  },
+  "layout_and_spacing": {
+    "max_width": "1200px",
+    "padding": "24px",
+    "section_spacing": "96px",
+    "grid_gap": "16-24px",
+    "border_radius": "12px",
+    "container_classes": "max-w-[1200px] mx-auto px-6",
+    "section_classes": "py-24",
+    "navbar": {
+      "height": "72px",
+      "style": "sticky top-0 z-50 bg-[#0B0D10]/80 backdrop-blur-md border-b border-[#1F2630]"
+    }
+  },
+  "motion_and_interactions": {
+    "transitions": "duration-150 ease-in-out or duration-200 ease-in-out",
+    "hover_effects": "Subtle border color change to accent (#C6A85B) or slight background elevation. No flashy animations, no scale-up bounce.",
+    "button_hover": "bg-[#D4B76A] text-black transition-colors duration-150"
+  },
+  "media_and_visuals": {
+    "hero_visual_concept": {
+      "type": "SVG Network/Grid Animation",
+      "description": "Subtle, low opacity (10-15%) geometric grid. Nodes connect slowly with CSS animations or lightweight particles. Keep it minimal, looking like a secure data network, not a sci-fi hacker terminal.",
+      "implementation": "Use a responsive absolute positioned SVG in the right column of the hero. Draw thin lines (stroke='#1F2630') connecting to small circles (fill='#C6A85B' opacity 0.3) that pulse slightly (opacity 0.2 to 0.4 over 4s)."
+    },
+    "image_urls": {
+      "institutional_abstract_bg": {
+        "url": "https://static.prod-images.emergentagent.com/jobs/4cfaaa15-1dc1-4c0e-873f-57c5a6337029/images/497786878b62e802362b920a127798657f7d4d48d8127e5cd17dc7e9c8023543.png",
+        "description": "Abstract dark geometric architecture. Use as a very low opacity background overlay for the Systems or Governance sections if needed."
+      },
+      "system_grid_texture": {
+        "url": "https://static.prod-images.emergentagent.com/jobs/4cfaaa15-1dc1-4c0e-873f-57c5a6337029/images/d14ef60513ed9239d0ef44fe97e8cdcbc7f939b928654e6941a17bb46af44a4f.png",
+        "description": "Dark mode abstract grid texture. Use for hero background (at 5-10% opacity) beneath the SVG network if texture is desired."
+      }
+    }
+  },
+  "components": {
+    "button_primary": "bg-[#C6A85B] text-black px-6 py-2.5 rounded-[12px] font-medium text-[15px] hover:bg-[#D4B76A] transition-colors duration-150",
+    "button_secondary": "bg-[#11151A] text-[#E8ECF1] border border-[#1F2630] px-6 py-2.5 rounded-[12px] font-medium text-[15px] hover:border-[#C6A85B] transition-colors duration-150",
+    "card_base": "bg-[#11151A] border border-[#1F2630] rounded-[12px] p-6 transition-colors duration-200",
+    "card_hover": "hover:border-[#C6A85B]",
+    "input_field": "bg-[#0B0D10] border border-[#1F2630] rounded-[12px] px-4 py-2.5 text-[15px] text-[#E8ECF1] placeholder-[#6B7380] focus:outline-none focus:border-[#C6A85B] focus:ring-1 focus:ring-[#C6A85B] transition-all duration-150",
+    "tag_locked": "bg-[#171C22] border border-[#1F2630] text-[#9AA4AF] text-[13px] px-2.5 py-1 rounded-full flex items-center gap-1.5 uppercase tracking-wider"
+  },
+  "pages_blueprint": {
+    "global": {
+      "navbar": "Sticky navbar 72px, wordmark 'YAZANAKI' left, links center (Clans, Alliances, Systems), Apply button right. bg-[#0B0D10]/80 backdrop-blur-md border-b border-[#1F2630]",
+      "footer": "Minimal. Copyright, standard structural links. py-12 border-t border-[#1F2630]"
+    },
+    "landing_page": {
+      "hero": "Split layout. Left: H1 48px, Body 15px, CTA. Right: Subtle SVG network/grid animation. Background can use `system_grid_texture` at 5% opacity.",
+      "stats_bar": "Horizontal bar showing: 5 Core Divisions, 1 Active Alliance, Structured Governance. Uses #171C22 bg with 1px border.",
+      "structure_preview": "Grid of 5 small clan cards (SNU, ANO, ONF, ONA, KASAII).",
+      "alliance_preview": "Excalibur card, visually differentiated (maybe slightly different border opacity or layout).",
+      "philosophy": "3-column layout highlighting strategic statements."
+    },
+    "core_clans_page": {
+      "header": "H1 and brief intro about the 5 permanent divisions.",
+      "grid": "Grid layout. 5 cards for SNU, ANO, ONF, ONA, KASAII. Each labeled 'Permanent Division' with a 'Locked Structure' tag. Hover state: gold border."
+    },
+    "alliances_page": {
+      "header": "H1 on external alliances and integration.",
+      "active_alliances": "Excalibur card displayed prominently.",
+      "system_explanation": "3-column layout: Structured Agreements, Scalable Terms, Economic Integration.",
+      "cta_section": "Apply for Alliance block. Clicking 'Apply' opens a Shadcn Dialog (Modal) form.",
+      "apply_modal_form": "Fields: Faction Name (Input), Size (Input/Select), Specialization (Select), Alliance Type (Select), Contribution Capacity (Textarea), Notes (Textarea)."
+    },
+    "systems_page": {
+      "header": "H1 detailing operational systems.",
+      "sections": "Vertical or bento-grid sections for Economy, Governance, Alliances. Use abstract icons (lucide-react: e.g., Network, Landmark, Scale) and clean typography."
+    }
+  },
+  "technical_instructions_to_main_agent": {
+    "framework": "React.js with Tailwind CSS.",
+    "file_extension": "Use .js and .jsx extensions. DO NOT use .tsx or TypeScript.",
+    "testing": "All interactive elements, buttons, inputs, modals, and nav links MUST include a `data-testid` attribute (e.g., `data-testid=\"nav-clans-link\"`, `data-testid=\"apply-submit-button\"`).",
+    "components": "Use Shadcn UI for Dialog (modal), Select, Input, Textarea. Strip default Vercel look and apply the provided Tailwind hex codes and border radii (rounded-[12px] / 12px).",
+    "icons": "Use lucide-react for minimal, structured icons. No gamer/fantasy icons (no swords, shields, fire). Use geometric shapes, networks, nodes, layers."
+  }
+}
