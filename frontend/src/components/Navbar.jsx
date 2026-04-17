@@ -1,15 +1,33 @@
 import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import ApplyDialog from "./ApplyDialog";
+import { empire } from "../data";
 
 const linkBase =
-  "text-[14px] tracking-tight text-secondary hover:text-primary transition-colors duration-150";
+  "relative text-[14px] tracking-tight text-secondary hover:text-primary transition-colors duration-150";
 const linkActive = "text-primary";
+
+function DesktopLink({ to, testId, children }) {
+  return (
+    <NavLink
+      to={to}
+      data-testid={testId}
+      className={({ isActive }) =>
+        `${linkBase} ${isActive ? linkActive : ""}`
+      }
+    >
+      {({ isActive }) => (
+        <span className="relative inline-block">
+          {children}
+          {isActive && <span className="nav-active-marker" aria-hidden />}
+        </span>
+      )}
+    </NavLink>
+  );
+}
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [applyOpen, setApplyOpen] = useState(false);
 
   return (
     <header
@@ -35,52 +53,30 @@ export default function Navbar() {
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
-          <NavLink
-            to="/clans"
-            data-testid="nav-clans-link"
-            className={({ isActive }) =>
-              `${linkBase} ${isActive ? linkActive : ""}`
-            }
-          >
+          <DesktopLink to="/clans" testId="nav-clans-link">
             Clans
-          </NavLink>
-          <NavLink
-            to="/alliances"
-            data-testid="nav-alliances-link"
-            className={({ isActive }) =>
-              `${linkBase} ${isActive ? linkActive : ""}`
-            }
-          >
+          </DesktopLink>
+          <DesktopLink to="/alliances" testId="nav-alliances-link">
             Alliances
-          </NavLink>
-          <NavLink
-            to="/systems"
-            data-testid="nav-systems-link"
-            className={({ isActive }) =>
-              `${linkBase} ${isActive ? linkActive : ""}`
-            }
-          >
+          </DesktopLink>
+          <DesktopLink to="/systems" testId="nav-systems-link">
             Systems
-          </NavLink>
-          <NavLink
-            to="/registry"
-            data-testid="nav-registry-link"
-            className={({ isActive }) =>
-              `${linkBase} ${isActive ? linkActive : ""}`
-            }
-          >
+          </DesktopLink>
+          <DesktopLink to="/registry" testId="nav-registry-link">
             Registry
-          </NavLink>
+          </DesktopLink>
         </nav>
 
         <div className="flex items-center gap-3">
-          <button
-            data-testid="nav-apply-button"
-            onClick={() => setApplyOpen(true)}
+          <a
+            data-testid="nav-discord-button"
+            href={empire.discordInvite}
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-primary hidden sm:inline-flex"
           >
-            Apply
-          </button>
+            Discord
+          </a>
           <button
             data-testid="nav-mobile-toggle"
             className="md:hidden p-2 rounded-[10px] border border-line text-secondary"
@@ -130,21 +126,19 @@ export default function Navbar() {
             >
               Registry
             </NavLink>
-            <button
-              data-testid="nav-mobile-apply"
-              onClick={() => {
-                setOpen(false);
-                setApplyOpen(true);
-              }}
+            <a
+              data-testid="nav-mobile-discord"
+              href={empire.discordInvite}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
               className="btn-primary w-full justify-center"
             >
-              Apply
-            </button>
+              Discord
+            </a>
           </div>
         </div>
       )}
-
-      <ApplyDialog open={applyOpen} onClose={() => setApplyOpen(false)} />
     </header>
   );
 }

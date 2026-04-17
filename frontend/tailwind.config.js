@@ -14,6 +14,10 @@ module.exports = {
           DEFAULT: "#C6A85B",
           hover: "#D4B76A",
         },
+        crimson: {
+          DEFAULT: "#8B0000",
+          soft: "#A63232",
+        },
         line: "#1F2630",
       },
       fontFamily: {

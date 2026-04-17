@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import SectionHeader from "../components/SectionHeader";
 import AllianceCard from "../components/AllianceCard";
-import ApplyDialog from "../components/ApplyDialog";
 import { Icon } from "../components/Icon";
-import { getAllianceList, allianceSystemColumns, empire } from "../data";
+import {
+  getAllianceList,
+  allianceSystemColumns,
+  allianceProcess,
+  empire,
+} from "../data";
 import { ArrowRight } from "lucide-react";
 
 export default function Alliances() {
-  const [applyOpen, setApplyOpen] = useState(false);
   const alliances = getAllianceList();
 
   return (
@@ -70,51 +73,66 @@ export default function Alliances() {
         </div>
       </section>
 
-      <section className="max-w-container mx-auto px-6 py-24">
-        <div
-          data-testid="alliance-cta"
-          className="relative rounded-[12px] border border-line overflow-hidden p-8 md:p-14"
-          style={{
-            background:
-              "linear-gradient(120deg, #11151A 0%, #171C22 100%)",
-          }}
-        >
-          <div
-            className="absolute inset-0 opacity-40 pointer-events-none"
-            style={{
-              background:
-                "radial-gradient(700px circle at 20% -10%, rgba(198,168,91,0.14), transparent 55%)",
-            }}
+      {/* Alliance Process — informational only, no form */}
+      <section
+        className="border-t border-line"
+        data-testid="alliance-process-section"
+      >
+        <div className="max-w-container mx-auto px-6 py-24">
+          <SectionHeader
+            eyebrow="Alliance Process"
+            title="How to initiate a formal agreement."
+            description="There is no public application form. Alliances follow a structured, off-site process. Each step is gated and reviewed."
           />
-          <div className="absolute inset-0 bg-grid-soft opacity-30 mask-radial pointer-events-none" />
-          <div className="relative grid md:grid-cols-[1.4fr_1fr] items-center gap-10">
-            <div>
-              <div className="text-[12px] tracking-[0.3em] text-accent uppercase mb-4">
-                Alliance Intake · Open
-              </div>
-              <h3 className="text-[32px] md:text-[38px] font-semibold text-primary leading-[1.1] tracking-tight">
-                Apply for formal integration with the Yazanaki Empire.
-              </h3>
-              <p className="text-[15px] text-secondary leading-[1.7] mt-5 max-w-xl">
-                Submissions are reviewed against structural fit, capacity, and
-                specialization. Acceptance is neither automatic nor immediate.
-              </p>
-            </div>
-            <div className="flex md:justify-end">
-              <button
-                data-testid="alliance-apply-cta"
-                onClick={() => setApplyOpen(true)}
-                className="btn-primary text-[16px] px-8 py-4"
+
+          <ol className="grid md:grid-cols-2 gap-5 mt-14">
+            {allianceProcess.map((s, i) => (
+              <li
+                key={s.step}
+                data-testid={`alliance-process-step-${s.step}`}
+                className="card-base p-7 flex gap-5 items-start animate-fadeUp"
+                style={{ animationDelay: `${i * 80}ms` }}
               >
-                Apply for Alliance
-                <ArrowRight size={16} />
-              </button>
+                <div className="w-10 h-10 rounded-[10px] border border-line bg-elevated flex items-center justify-center text-accent text-[13px] tracking-[0.14em] font-medium shrink-0">
+                  {String(s.step).padStart(2, "0")}
+                </div>
+                <div>
+                  <h4 className="text-[18px] text-primary font-semibold leading-tight">
+                    {s.title}
+                  </h4>
+                  <p className="text-[14px] text-secondary leading-[1.7] mt-2">
+                    {s.body}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ol>
+
+          <div
+            data-testid="alliance-process-cta"
+            className="mt-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 p-7 rounded-[12px] border border-line bg-elevated/60"
+          >
+            <div>
+              <div className="text-[12px] tracking-[0.28em] text-muted uppercase">
+                Entry Point
+              </div>
+              <div className="text-[16px] text-primary mt-2">
+                All initiation happens through the Yazanaki Empire Discord.
+              </div>
             </div>
+            <a
+              data-testid="alliance-discord-cta"
+              href={empire.discordInvite}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+            >
+              Request Alliance via Discord
+              <ArrowRight size={16} />
+            </a>
           </div>
         </div>
       </section>
-
-      <ApplyDialog open={applyOpen} onClose={() => setApplyOpen(false)} />
     </div>
   );
 }

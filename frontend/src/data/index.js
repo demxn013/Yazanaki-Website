@@ -3,7 +3,7 @@
 // later is a one-file change.
 import { empire } from "./empire";
 import { clans } from "./clans";
-import { alliances, allianceOptions } from "./alliances";
+import { alliances, allianceProcess } from "./alliances";
 import { members, memberRoles, memberStatuses } from "./members";
 import {
   systems,
@@ -16,7 +16,7 @@ export {
   empire,
   clans,
   alliances,
-  allianceOptions,
+  allianceProcess,
   members,
   memberRoles,
   memberStatuses,

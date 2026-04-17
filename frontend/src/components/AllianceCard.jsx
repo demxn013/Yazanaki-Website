@@ -1,10 +1,17 @@
 import React from "react";
-import { Handshake } from "lucide-react";
+import Emblem from "./Emblem";
 
-export default function AllianceCard({ name, label, status, description }) {
+export default function AllianceCard({
+  code,
+  name,
+  label,
+  status,
+  description,
+  emblem,
+}) {
   return (
     <article
-      data-testid={`alliance-card-${name.toLowerCase()}`}
+      data-testid={`alliance-card-${(code || name).toLowerCase()}`}
       className="relative p-7 rounded-[12px] border border-line overflow-hidden group transition-colors duration-200 hover:border-accent/70"
       style={{
         background:
@@ -15,31 +22,36 @@ export default function AllianceCard({ name, label, status, description }) {
         className="absolute inset-0 opacity-40 pointer-events-none"
         style={{
           background:
-            "radial-gradient(600px circle at 85% -20%, rgba(198,168,91,0.12), transparent 55%)",
+            "radial-gradient(600px circle at 85% -20%, rgba(198,168,91,0.10), transparent 55%)",
         }}
       />
       <div className="relative flex flex-col gap-5">
-        <div className="flex items-start justify-between">
-          <div className="flex items-center gap-3">
-            <span className="inline-flex items-center justify-center w-10 h-10 rounded-[10px] border border-line bg-background">
-              <Handshake size={16} className="text-accent" />
-            </span>
+        <div className="flex items-start justify-between gap-4">
+          <div className="flex items-center gap-4">
+            <Emblem
+              code={code || name}
+              src={emblem}
+              size={56}
+              testId={`alliance-emblem-${(code || name).toLowerCase()}`}
+            />
             <div>
-              <h3 className="text-[22px] font-semibold text-primary tracking-tight">
+              <h3 className="text-[22px] font-semibold text-primary tracking-tight leading-none">
                 {name}
               </h3>
-              <div className="text-[12px] text-secondary tracking-[0.24em] uppercase mt-0.5">
+              <div className="text-[12px] text-secondary tracking-[0.24em] uppercase mt-2">
                 {label}
               </div>
             </div>
           </div>
-          <div
-            className="flex items-center gap-2 text-[12px] text-accent tracking-[0.24em] uppercase"
-            data-testid={`alliance-status-${name.toLowerCase()}`}
+
+          {/* Crimson "Active" state — used strictly for the active marker */}
+          <span
+            className="badge-active"
+            data-testid={`alliance-status-${(code || name).toLowerCase()}`}
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulseNode" />
+            <span className="pulse" />
             {status}
-          </div>
+          </span>
         </div>
 
         <div className="hairline" />

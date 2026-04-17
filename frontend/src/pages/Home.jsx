@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import HeroNetwork from "../components/HeroNetwork";
 import ClanCard from "../components/ClanCard";
 import AllianceCard from "../components/AllianceCard";
 import SectionHeader from "../components/SectionHeader";
-import ApplyDialog from "../components/ApplyDialog";
 import {
   empire,
   getCoreClanList,
@@ -15,7 +14,6 @@ import {
 } from "../data";
 
 export default function Home() {
-  const [applyOpen, setApplyOpen] = useState(false);
   const coreClans = getCoreClanList();
   const alliances = getAllianceList();
   const stats = getLandingStats();
@@ -159,14 +157,16 @@ export default function Home() {
             {alliances.map((a) => (
               <AllianceCard key={a.code} {...a} />
             ))}
-            <button
-              data-testid="alliance-preview-apply"
-              onClick={() => setApplyOpen(true)}
+            <a
+              data-testid="alliance-preview-discord"
+              href={empire.discordInvite}
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-secondary self-start"
             >
-              Apply for Alliance
+              Request Alliance via Discord
               <ArrowRight size={16} />
-            </button>
+            </a>
           </div>
         </div>
       </section>
@@ -202,7 +202,6 @@ export default function Home() {
         </div>
       </section>
 
-      <ApplyDialog open={applyOpen} onClose={() => setApplyOpen(false)} />
     </div>
   );
 }

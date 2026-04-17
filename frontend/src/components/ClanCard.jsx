@@ -1,26 +1,34 @@
 import React from "react";
 import { Lock } from "lucide-react";
+import Emblem from "./Emblem";
 
-export default function ClanCard({ code, name, role, description, index = 0 }) {
+export default function ClanCard({
+  code,
+  name,
+  role,
+  description,
+  emblem,
+  index = 0,
+}) {
   return (
     <article
       data-testid={`clan-card-${code.toLowerCase()}`}
       className="card-base p-6 flex flex-col gap-5 group animate-fadeUp"
       style={{ animationDelay: `${index * 70}ms` }}
     >
-      <div className="flex items-start justify-between">
-        <div className="flex items-center gap-3">
-          <span
-            aria-hidden
-            className="inline-flex items-center justify-center w-9 h-9 rounded-[10px] border border-line text-[12px] tracking-[0.18em] text-accent font-medium group-hover:border-accent/70 transition-colors"
-          >
-            {String(index + 1).padStart(2, "0")}
-          </span>
+      <div className="flex items-start justify-between gap-4">
+        <div className="flex items-center gap-4">
+          <Emblem
+            code={code}
+            src={emblem}
+            size={56}
+            testId={`clan-emblem-${code.toLowerCase()}`}
+          />
           <div>
-            <h3 className="text-[22px] font-semibold text-primary tracking-tight">
+            <h3 className="text-[22px] font-semibold text-primary tracking-tight leading-none">
               {name}
             </h3>
-            <div className="text-[12px] text-secondary tracking-[0.24em] uppercase mt-0.5">
+            <div className="text-[12px] text-secondary tracking-[0.24em] uppercase mt-2">
               Permanent Division
             </div>
           </div>

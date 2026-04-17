@@ -1,9 +1,9 @@
 import React from "react";
 
 const statusStyles = {
-  Active: "text-accent border-accent/40 bg-accent/10",
-  Reserve: "text-secondary border-line bg-elevated",
-  Inactive: "text-muted border-line bg-background",
+  Active: "badge-active",
+  Reserve: "text-secondary border-line bg-elevated border rounded-full inline-flex items-center gap-1.5 text-[11px] tracking-[0.22em] uppercase px-2.5 py-1",
+  Inactive: "text-muted border-line bg-background border rounded-full inline-flex items-center gap-1.5 text-[11px] tracking-[0.22em] uppercase px-2.5 py-1",
 };
 
 const roleStyles = {
@@ -35,12 +35,17 @@ export default function MemberRow({ member, index = 0 }) {
       </td>
       <td className={`px-5 py-4 text-[13px] ${roleClass}`}>{role}</td>
       <td className="px-5 py-4">
-        <span
-          className={`inline-flex items-center gap-1.5 text-[11px] tracking-[0.22em] uppercase border rounded-full px-2.5 py-1 ${statusClass}`}
-        >
-          <span className="w-1.5 h-1.5 rounded-full bg-current" />
-          {status}
-        </span>
+        {status === "Active" ? (
+          <span className="badge-active">
+            <span className="pulse" />
+            {status}
+          </span>
+        ) : (
+          <span className={statusClass}>
+            <span className="w-1.5 h-1.5 rounded-full bg-current" />
+            {status}
+          </span>
+        )}
       </td>
     </tr>
   );
